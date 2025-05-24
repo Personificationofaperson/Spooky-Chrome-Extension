@@ -8,19 +8,22 @@ window.addEventListener('load', () => {
 });
 
 function buyPumpkin() {
+    if (localStorage.getItem('pumpkinBought') === 'true') {
+        return 
+    };
+    localStorage.setItem('pumpkinBought', 'true');
     points -= 10;
     if (points < 0) {
         points = 0;
     }
     const scoreContainer = document.getElementById('score');
     const pointsMessage = document.createElement('p');
-    localStorage.setItem('pumpkinBought', 'true');
 
     scoreContainer.replaceChildren();
     pointsMessage.innerHTML = `${points} coins`;
     scoreContainer.appendChild(pointsMessage);
     setPointsInCookies(points);
-}
+};
 
 
 

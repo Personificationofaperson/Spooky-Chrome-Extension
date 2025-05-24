@@ -149,6 +149,9 @@ body {
   /*UI of shop*/
   .accessories {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
   }
 
   #pumpkin-bucket-shop {
@@ -161,6 +164,16 @@ body {
     cursor: pointer;
   }
 
+  #mustache-shop {
+    width: clamp(90px, 4vw, 140px);
+    aspect-ratio: 1/3;
+    height: clamp(200px, 4vw, 150px);
+    margin-bottom: -8%;
+  }
+
+  #mustache-shop:hover {
+    cursor: pointer;
+  }
 
 
   
