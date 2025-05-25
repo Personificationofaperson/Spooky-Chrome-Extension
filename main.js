@@ -1,9 +1,23 @@
 let points = getPointsFromCookies();
 
 window.addEventListener('load', () => {
+    console.log(localStorage)
+    console.log(localStorage.getItem('mustacheBought'))
     if (localStorage.getItem('pumpkinBought') === 'true') {
         const pumpkin = document.getElementById('pumpkin');
+        const ghostAccessories = document.getElementsByClassName('on-ghost');
+        for (let i = 0; i < ghostAccessories.length; i++) {
+        ghostAccessories[i].style.display = 'none';
+        }
         pumpkin.style.display = 'block';
+    }
+    if (localStorage.getItem('mustacheBought') === 'true') {
+        const pumpkin = document.getElementById('mustache');
+        const ghostAccessories = document.getElementsByClassName('on-ghost');
+        for (let i = 0; i < ghostAccessories.length; i++) {
+        ghostAccessories[i].style.display = 'none';
+        }
+        mustache.style.display = 'block';
     }
     const scoreContainer = document.getElementById('score');
     const pointsMessage = document.createElement('p');
@@ -34,6 +48,16 @@ function buyPumpkin() {
     pointsMessage.innerHTML = `${points} coins`;
     scoreContainer.appendChild(pointsMessage);
     setPointsInCookies(points);
+}
+
+function buyMustache() {
+    points -= 10;
+    if (points < 0) {
+        points = 0;
+    }
+    const scoreContainer = document.getElementById('score');
+    const pointsMessage = document.createElement('p');
+    localStorage.setItem('mustacheBought', 'true');
 }
 
 
