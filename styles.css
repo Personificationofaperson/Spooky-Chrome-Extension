@@ -1,5 +1,5 @@
 body {
-    background-color: black;
+    background-color: #46c5ff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,6 +9,11 @@ body {
 
 :root {
     --light-color: #e9f0f5;
+    --accent-color: #46c5ff;
+    --font-family: "inter", sans-serif;
+    --font-weight: 600;
+    --font-size-button: 17px;
+    --font-size-text: 16px;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -29,6 +34,7 @@ body {
     animation: float 3s ease-in-out infinite;
     z-index: 2;
     animation: float infinite 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 300px #e9f0f56b) drop-shadow(0 0 100px #fff);
   }
 
   .ghost-underneath {
@@ -38,16 +44,50 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
-    gap: 1%;
+    gap: 2%;
+    position: relative;
+    z-index: 2;
+  }
+
+  .ghost-underneath-second {
+    width: 90%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2%;
+    position: absolute;
+    z-index: 1;
+    animation: waveOpposite 4s infinite;
+  }
+
+  .ghost-underneath-second .second {
+    background-color: #e9f0f56b;
   }
 
   .ghost-underneath-cutout {
-    height: 10%;
-    width: 25%;
+    height: 70%;
+    width: 30%;
     background-color: var(--light-color);
-    border-radius: 50%;
-    margin-bottom: -3%;
+    border-radius: 40%;
+    margin-bottom: -20%;
+    animation: waveY 4s infinite;
   }
+
+  .ghost-shadow {
+  margin-top: 2%;
+  margin-bottom: 0;
+  padding: 0; 
+  width: 5%;
+  height: 18px;
+  background: rgba(0,0,0,0.09);
+  border-radius: 50%;
+  filter: blur(2px);
+  z-index: 1;
+}
+
+  
 
 
 
@@ -75,6 +115,7 @@ body {
     width: 18%;
     height: 28%;
     border-radius: 100%;
+    animation: blink 2.5s ease-in-out infinite;
   }
 
   .ghost-mouth {
@@ -127,15 +168,21 @@ body {
     text-decoration: none;
     background: white;
     color: black;
-    padding: 10px 20px;
-    margin-top: 2%;
-    border-radius: 10px;
+    padding: 15px 20px;
+    margin-top: 4%;
+    border-radius: 50px;
+    font-family: var(--font-family);
+    font-weight: var(--font-weight);
+    font-size: var(--font-size-button);
+    filter: drop-shadow(0 0 300px #e9f0f56b) drop-shadow(0 0 100px #fff);
+
   }
 
   #score p {
-    color: white;
-    font-size: 16px;
-  }
+    color: black;
+    font-family: var(--font-family);
+    font-size: var(--font-size-text);
+}
 
   #score {
     position: absolute;
@@ -185,6 +232,14 @@ body {
     cursor: pointer;
   }
 
+  .shop-button.home {
+    background-color: white;
+    border-radius: 50%;
+    padding: 7px;
+    top: 25px;
+    left: 25px;
+  }
+  
 
   
 
@@ -200,3 +255,36 @@ body {
     100% {
         transform: translateY(0);
     } }
+    
+    @keyframes waveY {
+      0%   { transform: translateX(0); }
+  20%  { transform: translateX(0.5px); }
+  40%  { transform: translateX(-0.5px); }
+  60%  { transform: translateX(0.5px); }
+  80%  { transform: translateX(-0.5px);}
+  100% { transform: translateX(0); }
+}
+
+@keyframes waveOpposite {
+      0%   { transform: translateY(-90%)  translateX(1px); }
+  20%  { transform: translateY(-90%) translateX(-1px); }
+  40%  { transform: translateY(-90%) translateX(1px); }
+  60%  { transform: translateY(-90%) translateX(-1px); }
+  80%  { transform: translateY(-90%) translateX(1px);}
+  100% { transform: translateY(-90%) translateX(1px); }
+}
+
+@keyframes blink {
+  0%, 90%, 100% {
+    transform: scaleY(1);
+  }
+  92% {
+    transform: scaleY(0.1);
+  }
+  94% {
+    transform: scaleY(0.01);
+  }
+  96% {
+    transform: scaleY(0.1);
+  }
+}
