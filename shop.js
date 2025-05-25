@@ -8,8 +8,8 @@ window.addEventListener('load', () => {
 let points = getPointsFromCookies();
 
     function substractPoints(functionName) {
-        if (localStorage.getItem('calledKey') === 'true') return;
-        localStorage.setItem('calledKey', 'true');
+        if (localStorage.getItem(`calledKey_${functionName}`) === 'true') return;
+        localStorage.setItem(`calledKey_${functionName}`, 'true');
         points -= 10;
     if (points < 0) {
         points = 0;
