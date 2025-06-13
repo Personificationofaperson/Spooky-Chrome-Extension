@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "The spooky tab",
+  "version": "1.0.0",
+  "description": "A spooky tabs to collect fun accessories for your ghost companion",
+  "icons": {
+    "48": "images/icon-48.png", /*aanvullen*/
+    "128": "images/icon-128.png"
+  }
+}
